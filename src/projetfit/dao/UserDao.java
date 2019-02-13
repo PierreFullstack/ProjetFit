@@ -65,7 +65,7 @@ public class UserDao {
         ResultSet rs = req.executeQuery(sql) ;
         
         while (rs.next()) {             // Va aller voir toutes les lignes de rs
-            User u = new User(rs.getInt("idpersonne"), rs.getString("prenom"), rs.getString("nom"), rs.getInt("age"), rs.getInt("taille"), rs.getString("mail"), rs.getString("mdp")) ;
+            User u = new User(rs.getInt("id"), rs.getString("prenom"), rs.getString("nom"), rs.getInt("age"), rs.getInt("taille"), rs.getString("mail"), rs.getString("mdp")) ;
             users.add(u) ;
         }
         return users ;          // liste avec tous utilisateurs
