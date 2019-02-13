@@ -10,6 +10,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import fit.model.User;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -48,4 +51,26 @@ public class UserDao {
         ordre.setString(6, utilisateur.getMdp());
         ordre.execute();
     }
+    
+    
+        public static List<User> getAll() throws SQLException {
+        
+        List<User> users = new ArrayList<>() ;
+    
+        String sql = "SELECT * FROM user" ;
+        
+        Connection connexion = ProjetFitDao.getConnection() ;
+        
+        Statement req = connexion.createStatement() ;
+        ResultSet rs = req.executeQuery(sql) ;
+        
+        while (rs.next()) {             // Va aller voir toutes les lignes de rs
+            User u = new User(rs.getInt("idpersonne"), rs.getString("prenom"), rs.getString("nom"), rs.getInt("age"), rs.getInt("taille"), rs.getString("mail"), rs.getString("mdp")) ;
+            users.add(u) ;
+        }
+        return users ;          // liste avec tous utilisateurs
+    }
+    
+    
+    
 }
