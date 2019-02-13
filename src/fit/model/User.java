@@ -12,26 +12,55 @@ package fit.model;
 public class User {
     
     private int id;
-    private String nom;
     private String prenom;
+    private String nom;
+    private int age;
+    private int taille;
     private String mail;
     private String mdp;
-    private int taille;
-    private int age;
+    
+
 
     public User() {
     }
 
-    public User(int id, String nom, String prenom, String mail, String mdp, int taille, int age) {
+    public User(int id, String prenom, String nom, int age, int taille, String mail) {
         this.id = id;
-        this.nom = nom;
         this.prenom = prenom;
-        this.mail = mail;
-        this.mdp = mdp;
-        this.taille = taille;
+        this.nom = nom;
         this.age = age;
+        this.taille = taille;
+        this.mail = mail;
     }
 
+    public User(String prenom, String nom, int age, int taille, String mail, String mdp) {
+        this.prenom = prenom;
+        this.nom = nom;
+        this.age = age;
+        this.taille = taille;
+        this.mail = mail;
+        this.mdp = mdp;
+    }
+
+    public User(int id, String prenom, String nom, int age, int taille) {
+        this.id = id;
+        this.prenom = prenom;
+        this.nom = nom;
+        this.age = age;
+        this.taille = taille;
+    }
+
+    public User(int id, String prenom, String nom, int age, int taille, String mail, String mdp) {
+        this.id = id;
+        this.prenom = prenom;
+        this.nom = nom;
+        this.age = age;
+        this.taille = taille;
+        this.mail = mail;
+        this.mdp = mdp;
+    }
+    
+    
     public int getId() {
         return id;
     }
